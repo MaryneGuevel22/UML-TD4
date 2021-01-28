@@ -1,9 +1,13 @@
-package representation;
+package test.java.representation;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import main.java.representation.Representant;
+import main.java.representation.ZoneGeographique;
 
 public class TestRepresentant {
 	// Quelques constantes
@@ -77,6 +81,51 @@ public class TestRepresentant {
 			r.enregistrerCA(0, -10000f);
 			// Si on arrive ici, c'est une erreur, le test doit échouer
 			fail("Un CA négatif doit générer une exception"); // Forcer l'échec du test			
+		} catch (IllegalArgumentException e) {
+			// Si on arrive ici, c'est normal, c'est le comportement attendu
+		}
+
+	}
+	
+	@Test
+	public void testCAMoisNegatifImpossible() {
+		
+		try {
+			// On enregistre un CA négatif, que doit-il se passer ?
+			// On s'attend à recevoir une exception
+			r.enregistrerCA(12, 10000f);
+			// Si on arrive ici, c'est une erreur, le test doit échouer
+			fail("Un CA négatif doit générer une exception"); // Forcer l'échec du test			
+		} catch (IllegalArgumentException e) {
+			// Si on arrive ici, c'est normal, c'est le comportement attendu
+		}
+
+	}
+	
+	@Test
+	public void testSalairePourcentageNegatifImpossible() {
+		
+		try {
+			// On enregistre un CA négatif, que doit-il se passer ?
+			// On s'attend à recevoir une exception
+			r.salaireMensuel(0, -1f);
+			// Si on arrive ici, c'est une erreur, le test doit échouer
+			fail("Un salaire négatif doit générer une exception"); // Forcer l'échec du test			
+		} catch (IllegalArgumentException e) {
+			// Si on arrive ici, c'est normal, c'est le comportement attendu
+		}
+
+	}
+	
+	@Test
+	public void testSalaireMoisNegatifImpossible() {
+		
+		try {
+			// On enregistre un CA négatif, que doit-il se passer ?
+			// On s'attend à recevoir une exception
+			r.salaireMensuel(22, 1f);
+			// Si on arrive ici, c'est une erreur, le test doit échouer
+			fail("Un salaire négatif doit générer une exception"); // Forcer l'échec du test			
 		} catch (IllegalArgumentException e) {
 			// Si on arrive ici, c'est normal, c'est le comportement attendu
 		}

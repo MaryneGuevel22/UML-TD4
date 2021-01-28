@@ -1,4 +1,4 @@
-package representation;
+package main.java.representation;
 
 public class Main {
 
