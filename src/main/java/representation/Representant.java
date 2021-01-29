@@ -94,11 +94,6 @@ public class Representant {
 		if (pourcentage < 0) {
 			throw new IllegalArgumentException("Le pourcentage doit être positif ou null");
 		}
-		
-		System.out.println(this.salaireFixe);
-		System.out.println(this.secteur.getIndemniteRepas());
-		System.out.println(pourcentage);
-		System.out.println(this.chiffreAffaire);
 				
 		return this.salaireFixe + this.secteur.getIndemniteRepas()+ (pourcentage * this.chiffreAffaire[mois]);
 	}
